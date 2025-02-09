@@ -2,12 +2,12 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Layout from "./components/Layout"
 import { ThemeProvider } from "./context/ThemeProvider"
 import WeatherDashboard from "./pages/WeatherDashboard"
-import CityPage from "./pages/CityPage"
+
 import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import NotFound from "./components/NotFound"
 
 
 const queryClient = new QueryClient({
@@ -29,12 +29,11 @@ function App() {
           <Layout>
             <Routes>
               <Route path="/" element={<WeatherDashboard />} />
-              <Route path="/city/:cityName" element={<CityPage />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </Layout>
           </ThemeProvider>
         </BrowserRouter>
-        <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   )
 }
