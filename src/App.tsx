@@ -1,12 +1,13 @@
-import { Button } from "./components/ui/button"
+import { BrowserRouter } from "react-router-dom"
+import Layout from "./components/Layout"
+import { ThemeProvider } from "./context/theme-provider"
 function App() {
-
   return (
-      <div className="text-4xl font-bold">
-        Klimate
-        <br />
-        <Button>Click</Button>
-      </div>
+      <BrowserRouter>
+        <ThemeProvider defaultTheme="dark">
+         <Layout>Hello</Layout>
+        </ThemeProvider>
+      </BrowserRouter>
 
   )
 }
